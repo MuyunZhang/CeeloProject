@@ -2,12 +2,13 @@ public class Player {
     Player player1;
     Player player2;
     Player player3;
+
+    String name;
     int chips;
     int score;
-    public Player(){
-        Player player1 = null;
-        Player player2 = null;
-        Player player3 = null;
+
+    public Player(String name){
+        this.name = name;
         chips = 100;
         score = 0;
     }

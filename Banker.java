@@ -1,9 +1,5 @@
 
 public class Banker {
-
-
-
-
     int chips;
     int score;
     public Banker(){
