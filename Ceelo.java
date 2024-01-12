@@ -43,16 +43,20 @@ public class Ceelo {
 
     public void play(Player p, int bet){
         p.roll();
-        int first = p.getDice1();
-        int second = p.getDice2();
-        int third = p.getChips();
-        int[] rolls = new int[]{first, second, third};
-        while(rolls)
-        if(first == second && second == third){
+        int f = p.getDice1();
+        int s = p.getDice2();
+        int t = p.getChips();
+        boolean again = false;
+        int[] fail = new int[]{1,2,3};
+        int[] rolls = new int[]{f, s, t};
+
+        if(f == s && s == t){
             p.addChips(bet);
             boss.addChips(-bet);
         }
-        else if()
+        else if(){
+
+        }
 
 
 
