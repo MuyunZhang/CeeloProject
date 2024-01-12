@@ -1,11 +1,22 @@
 
+import java.util.Objects;
 import java.util.Scanner;
 import java.io.IOException;
 public class Ceelo {
     private Player p1;
     private Player p2;
     private Player p3;
+    private int r1;
+    private int r2;
+    private int r3;
+    private Banker boss;
+    private Die d;
+    private boolean end = false;
+
+    private boolean rollAgain;
     private Scanner scan;
+
+    private boolean win;
     public Ceelo(){
 
     }
@@ -14,25 +25,51 @@ public class Ceelo {
         System.out.println("Welcome to Ceelo");
         System.out.println("Enter player1's name");
         String name1 = scan.nextLine();
-        p1 = new Player(name1);
+        p1 = new Player(Colors.GREEN + name1 + Colors.RESET);
         System.out.println("Enter player2's name");
         String name2 = scan.nextLine();
-        p2 = new Player(name2);
+        p2 = new Player(Colors.GREEN + name2 + Colors.RESET);
         System.out.println("Enter player3's name");
         String name3 = scan.nextLine();
-        p3 = new Player(name3);
+        p3 = new Player(Colors.GREEN + name3 + Colors.RESET);
+        boss = new Banker();
+        d = new Die();
+        System.out.println("Game ready, defeat the Banker");
 
     }
-    public void gameMenu(){
+    public boolean roundResult(int first, int second, int third){
+        return true;
+    }
+
+    public void play(Player p, int bet){
+        p.roll();
+        int first = p.getDice1();
+        int second = p.getDice2();
+        int third = p.getChips();
+        int[] rolls = new int[]{first, second, third};
+        while(rolls)
+        if(first == second && second == third){
+            p.addChips(bet);
+            boss.addChips(-bet);
+        }
+        else if()
+
+
+
+
 
     }
 
-    public void play(){
+    public void gameplay(){
+        while(!end){
+            System.out.println("Player 1, how many chips do you wager");
+            int w1 = scan.nextInt();
+            System.out.println("Player 2, how many chips do you wager");
+            int w2 = scan.nextInt();
+            System.out.println("Player 3, how many chips do you wager");
+            int w3 = scan.nextInt();
 
-
-
-
-
+        }
     }
 
 
