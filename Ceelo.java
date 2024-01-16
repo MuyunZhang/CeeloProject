@@ -1,7 +1,11 @@
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 import java.io.IOException;
+
+import static java.util.Arrays.sort;
+
 public class Ceelo {
     private Player p1;
     private Player p2;
@@ -9,7 +13,7 @@ public class Ceelo {
     private int r1;
     private int r2;
     private int r3;
-    private Banker boss;
+    private Banker boss = new Banker();
     private Die d;
     private boolean end = false;
 
@@ -37,32 +41,6 @@ public class Ceelo {
         System.out.println("Game ready, defeat the Banker");
 
     }
-    public boolean roundResult(int first, int second, int third){
-        return true;
-    }
-
-    public void play(Player p, int bet){
-        p.roll();
-        int f = p.getDice1();
-        int s = p.getDice2();
-        int t = p.getChips();
-        boolean again = false;
-        int[] fail = new int[]{1,2,3};
-        int[] rolls = new int[]{f, s, t};
-
-        if(f == s && s == t){
-            p.addChips(bet);
-            boss.addChips(-bet);
-        }
-        else if(){
-
-        }
-
-
-
-
-
-    }
 
     public void gameplay(){
         while(!end){
@@ -73,8 +51,140 @@ public class Ceelo {
             System.out.println("Player 3, how many chips do you wager");
             int w3 = scan.nextInt();
 
+
         }
     }
+    public boolean roundResult(int first, int second, int third){
+        return true;
+    }
+
+    public boolean compare(int[] input,int[] constant){
+        int count = 0;
+        for(int i = 0; i < input.length; i++){
+            if(input[i] == constant[i]){
+                count ++;
+            }
+        }
+        if(count == input.length){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public boolean repeat(int[] input){
+        int f = input[0];
+        int s = input[1];
+        int t = input[2];
+        int[] fail = new int[]{1,2,3};
+        int[] win = new int[]{4,5,6};
+        int[] temp = new int[input.length];
+        for(int i = 0; i < input.length; i ++){
+            temp[i] = input[i];
+        }
+        Arrays.sort(temp);
+        if(f != s && s != t && f != t && !compare(temp,win) && !compare(temp, fail)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean pRound(Player p, int bet){
+        boolean won = false;
+        p.roll();
+        int f = p.getDice1();
+        int s = p.getDice2();
+        int t = p.getChips();
+        boolean again = false;
+        int[] fail = new int[]{1,2,3};
+        int[] win = new int[]{4,5,6};
+        int[] rolls = new int[]{f, s, t};
+        while(repeat(rolls)){
+            p.roll();
+            f = p.getDice1();
+            s = p.getDice2();
+            t = p.getChips();
+            rolls = new int[]{f, s, t};
+        }
+
+        if(f == s && s == t){
+            p.addChips(bet);
+            boss.addChips(-bet);
+            won = true;
+        }
+        else if(rolls[0] == rolls[1]){
+            p.setScore(rolls[2]);
+        }
+        else if(rolls[0] == rolls[2]){
+            p.setScore(rolls[1]);
+        }
+        else if(rolls[1] == rolls[2]){
+            p.setScore(rolls[0]);
+        }
+        else {
+            Arrays.sort(rolls);
+            if(compare(rolls, win)){
+                p.addChips(bet);
+                boss.addChips(-bet);
+                won = true;
+            } else if (compare(rolls, fail)) {
+                p.addChips(-bet);
+                boss.addChips(bet);
+                won = false;
+            }
+        }
+        return won;
+    }
+
+    public boolean bankRound(Player p, int bet){
+        boolean won = false;
+        boss.roll();
+        int f = boss.getDice1();
+        int s = boss.getDice2();
+        int t = boss.getChips();
+        boolean again = false;
+        int[] fail = new int[]{1,2,3};
+        int[] win = new int[]{4,5,6};
+        int[] rolls = new int[]{f, s, t};
+        while(repeat(rolls)){
+            boss.roll();
+            f = boss.getDice1();
+            s = boss.getDice2();
+            t = boss.getChips();
+            rolls = new int[]{f, s, t};
+        }
+
+        if(f == s && s == t){
+            boss.addChips(bet);
+            p.addChips(-bet);
+            won = true;
+        }
+        else if(rolls[0] == rolls[1]){
+            boss.setScore(rolls[2]);
+        }
+        else if(rolls[0] == rolls[2]){
+            boss.setScore(rolls[1]);
+        }
+        else if(rolls[1] == rolls[2]){
+            boss.setScore(rolls[0]);
+        }
+        else {
+            Arrays.sort(rolls);
+            if(compare(rolls, win)){
+                boss.addChips(bet);
+                p.addChips(-bet);
+                won = true;
+            } else if (compare(rolls, fail)) {
+                boss.addChips(-bet);
+                p.addChips(bet);
+                won = false;
+            }
+        }
+        return won;
+    }
+
 
 
 
