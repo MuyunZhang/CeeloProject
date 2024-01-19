@@ -52,6 +52,7 @@ public class Ceelo {
             int w3 = scan.nextInt();
 
 
+
         }
     }
     public boolean roundResult(int first, int second, int third){
