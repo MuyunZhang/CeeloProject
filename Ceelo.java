@@ -97,16 +97,17 @@ public class Ceelo {
         int f = p.getDice1();
         int s = p.getDice2();
         int t = p.getChips();
-        boolean again = false;
         int[] fail = new int[]{1,2,3};
         int[] win = new int[]{4,5,6};
         int[] rolls = new int[]{f, s, t};
-        while(repeat(rolls)){
+        boolean again  = repeat(rolls);
+        while(again = true){
             p.roll();
             f = p.getDice1();
             s = p.getDice2();
             t = p.getChips();
             rolls = new int[]{f, s, t};
+            again = repeat(rolls);
         }
 
         if(f == s && s == t){
@@ -144,16 +145,17 @@ public class Ceelo {
         int f = boss.getDice1();
         int s = boss.getDice2();
         int t = boss.getChips();
-        boolean again = false;
         int[] fail = new int[]{1,2,3};
         int[] win = new int[]{4,5,6};
         int[] rolls = new int[]{f, s, t};
-        while(repeat(rolls)){
+        boolean again = repeat(rolls);
+        while(again = true){
             boss.roll();
             f = boss.getDice1();
             s = boss.getDice2();
             t = boss.getChips();
             rolls = new int[]{f, s, t};
+            again = repeat(rolls);
         }
 
         if(f == s && s == t){
