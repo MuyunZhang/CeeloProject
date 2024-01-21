@@ -112,10 +112,12 @@ public class Ceelo {
                             System.out.println(p1.getName() + " rolled " + p1.getDice1() + ", " + p1.getDice2() + ", " + p1.getDice3());
                             System.out.println(p1.getName() + " automatically wins this round");
                             System.out.println("Banker loses " + p1.getWager() + " chips");
-                            System.out.println(p1.getName() + "gains " + p1.getWager() + " chips");
+                            System.out.println(p1.getName() + " gains " + p1.getWager() + " chips");
                         } else if (boss.getScore() > p1.getScore()) {
                             System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
                             System.out.println(p1.getName() + " rolled " + p1.getDice1() + ", " + p1.getDice2() + ", " + p1.getDice3());
+                            System.out.println("Banker's score this round is: " + boss.getScore());
+                            System.out.println(p1.getName() + "'s score this round is: " + p1.getScore());
                             System.out.println("Banker won this round against you");
                             System.out.println("Banker gains " + p1.getWager() + " chips");
                             boss.addChips(p1.getWager());
@@ -130,7 +132,7 @@ public class Ceelo {
                             System.out.println(p1.getName() + " wins this round");
                             System.out.println("Banker loses " + p1.getWager() + " chips");
                             boss.loseChips(p1.getWager());
-                            System.out.println(p1.getName() + "gains " + p1.getWager() + " chips");
+                            System.out.println(p1.getName() + " gains " + p1.getWager() + " chips");
                             p1.addChips(p1.getWager());
                         }
                         else{
@@ -138,7 +140,7 @@ public class Ceelo {
                             System.out.println(p1.getName() + " rolled " + p1.getDice1() + ", " + p1.getDice2() + ", " + p1.getDice3());
                             System.out.println("Tie");
                             System.out.println(p1.getName() + " wins this round");
-                            System.out.println(p1.getName() + "gains " + p1.getWager() + " chips");
+                            System.out.println(p1.getName() + " gains " + p1.getWager() + " chips");
                             p1.addChips(p1.getWager());
                             System.out.println("Banker loses " + p1.getWager() + " chips");
                             boss.loseChips(p1.getWager());
@@ -152,10 +154,12 @@ public class Ceelo {
                             System.out.println(p2.getName() + " rolled " + p2.getDice1() + ", " + p2.getDice2() + ", " + p2.getDice3());
                             System.out.println(p2.getName() + " automatically wins this round");
                             System.out.println("Banker loses " + p2.getWager() + " chips");
-                            System.out.println(p2.getName() + "gains " + p2.getWager() + " chips");
+                            System.out.println(p2.getName() + " gains " + p2.getWager() + " chips");
                         } else if (boss.getScore() > p2.getScore()) {
                             System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
                             System.out.println(p2.getName() + " rolled " + p2.getDice1() + ", " + p2.getDice2() + ", " + p2.getDice3());
+                            System.out.println("Banker's score this round is: " + boss.getScore());
+                            System.out.println(p2.getName() + "'s score this round is: " + p2.getScore());
                             System.out.println("Banker won this round against you");
                             System.out.println("Banker gains " + p2.getWager() + " chips");
                             boss.addChips(p2.getWager());
@@ -170,7 +174,7 @@ public class Ceelo {
                             System.out.println(p2.getName() + " wins this round");
                             System.out.println("Banker loses " + p2.getWager() + " chips");
                             boss.loseChips(p2.getWager());
-                            System.out.println(p2.getName() + "gains " + p2.getWager() + " chips");
+                            System.out.println(p2.getName() + " gains " + p2.getWager() + " chips");
                             p2.addChips(p2.getWager());
                         }
                         else{
@@ -178,7 +182,7 @@ public class Ceelo {
                             System.out.println(p2.getName() + " rolled " + p2.getDice1() + ", " + p2.getDice2() + ", " + p2.getDice3());
                             System.out.println("Tie");
                             System.out.println(p2.getName() + " wins this round");
-                            System.out.println(p2.getName() + "gains " + p2.getWager() + " chips");
+                            System.out.println(p2.getName() + " gains " + p2.getWager() + " chips");
                             p2.addChips(p2.getWager());
                             System.out.println("Banker loses " + p2.getWager() + " chips");
                             boss.loseChips(p2.getWager());
@@ -191,10 +195,12 @@ public class Ceelo {
                             System.out.println(p3.getName() + " rolled " + p3.getDice1() + ", " + p3.getDice2() + ", " + p3.getDice3());
                             System.out.println(p3.getName() + " automatically wins this round");
                             System.out.println("Banker loses " + p3.getWager() + " chips");
-                            System.out.println(p3.getName() + "gains " + p3.getWager() + " chips");
+                            System.out.println(p3.getName() + " gains " + p3.getWager() + " chips");
                         } else if (boss.getScore() > p3.getScore()) {
                             System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
                             System.out.println(p3.getName() + " rolled " + p3.getDice1() + ", " + p3.getDice2() + ", " + p3.getDice3());
+                            System.out.println("Banker's score this round is: " + boss.getScore());
+                            System.out.println(p3.getName() + "'s score this round is: " + p3.getScore());
                             System.out.println("Banker won this round against you");
                             System.out.println("Banker gains " + p3.getWager() + " chips");
                             boss.addChips(p3.getWager());
@@ -209,7 +215,7 @@ public class Ceelo {
                             System.out.println(p3.getName() + " wins this round");
                             System.out.println("Banker loses " + p3.getWager() + " chips");
                             boss.loseChips(p3.getWager());
-                            System.out.println(p3.getName() + "gains " + p3.getWager() + " chips");
+                            System.out.println(p3.getName() + " gains " + p3.getWager() + " chips");
                             p3.addChips(p3.getWager());
                         }
                         else{
@@ -217,7 +223,7 @@ public class Ceelo {
                             System.out.println(p3.getName() + " rolled " + p3.getDice1() + ", " + p3.getDice2() + ", " + p3.getDice3());
                             System.out.println("Tie");
                             System.out.println(p3.getName() + " wins this round");
-                            System.out.println(p3.getName() + "gains " + p3.getWager() + " chips");
+                            System.out.println(p3.getName() + " gains " + p3.getWager() + " chips");
                             p3.addChips(p3.getWager());
                             System.out.println("Banker loses " + p3.getWager() + " chips");
                             boss.loseChips(p3.getWager());
@@ -358,7 +364,7 @@ public class Ceelo {
         p.roll();
         int f = p.getDice1();
         int s = p.getDice2();
-        int t = p.getChips();
+        int t = p.getDice3();
         int[] fail = new int[]{1,2,3};
         int[] win = new int[]{4,5,6};
         int[] rolls = new int[]{f, s, t};
@@ -367,7 +373,7 @@ public class Ceelo {
             p.roll();
             f = p.getDice1();
             s = p.getDice2();
-            t = p.getChips();
+            t = p.getDice3();
             rolls = new int[]{f, s, t};
             again = repeat(rolls);
         }
@@ -377,14 +383,14 @@ public class Ceelo {
             boss.loseChips(bet);
             p.setRoundWin(true);
         }
-        else if(rolls[0] == rolls[1]){
-            p.setScore(rolls[2]);
+        else if(f == s){
+            p.setScore(t);
         }
-        else if(rolls[0] == rolls[2]){
-            p.setScore(rolls[1]);
+        else if(f == t){
+            p.setScore(s);
         }
-        else if(rolls[1] == rolls[2]){
-            p.setScore(rolls[0]);
+        else if(s == t){
+            p.setScore(f);
         }
         else {
             Arrays.sort(rolls);
@@ -404,7 +410,7 @@ public class Ceelo {
         boss.roll();
         int f = boss.getDice1();
         int s = boss.getDice2();
-        int t = boss.getChips();
+        int t = boss.getDice3();
         int[] fail = new int[]{1,2,3};
         int[] win = new int[]{4,5,6};
         int[] rolls = new int[]{f, s, t};
@@ -413,7 +419,7 @@ public class Ceelo {
             boss.roll();
             f = boss.getDice1();
             s = boss.getDice2();
-            t = boss.getChips();
+            t = boss.getDice3();
             rolls = new int[]{f, s, t};
             again = repeat(rolls);
         }
@@ -432,14 +438,14 @@ public class Ceelo {
             }
             boss.setRoundWin(true);
         }
-        else if(rolls[0] == rolls[1]){
-            boss.setScore(rolls[2]);
+        else if(f == s){
+            boss.setScore(t);
         }
-        else if(rolls[0] == rolls[2]){
-            boss.setScore(rolls[1]);
+        else if(f == t){
+            boss.setScore(s);
         }
-        else if(rolls[1] == rolls[2]){
-            boss.setScore(rolls[0]);
+        else if(s == t){
+            boss.setScore(f);
         }
         else {
             Arrays.sort(rolls);
