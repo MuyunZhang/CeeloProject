@@ -24,7 +24,6 @@ public class Ceelo {
 
     private boolean playAgain = true;
 
-    private boolean playerWin;
 
     public Ceelo(){
 
@@ -50,6 +49,7 @@ public class Ceelo {
     public void gameplay(){
         while(playAgain == true) {
             setup();
+            boolean playerWin = false;
             while (!end) {
                 round++;
                 System.out.println("Round " + round);
@@ -96,15 +96,19 @@ public class Ceelo {
                     p3.setAvailable(false);
                     System.out.println(p3.getName() + " is unavailable");
                 }
+
+                System.out.println("-------------------------------------------------------------------------------------");
                 bankRound();
                 if (boss.getRoundWin() == false && boss.getScore() > 0) {
                     bankScore = boss.getScore();
+                    bankWinner = false;
                 } else if (boss.getRoundWin() == false) {
                     bankWinner = false;
+                    end = true;
                 } else {
                     bankWinner = true;
                 }
-                if (bankWinner == false) {
+                if (bankWinner == false && end == false) {
                     if (p1.getAvailable()) {
                         pRound(p1, p1.getWager());
                         if (p1.getRoundWin() == true) {
@@ -145,8 +149,8 @@ public class Ceelo {
                             System.out.println("Banker loses " + p1.getWager() + " chips");
                             boss.loseChips(p1.getWager());
                         }
-
                     }
+                    System.out.println("-------------------------------------------------------------------------------------");
                     if (p2.getAvailable()) {
                         pRound(p2, p2.getWager());
                         if (p2.getRoundWin() == true) {
@@ -188,6 +192,7 @@ public class Ceelo {
                             boss.loseChips(p2.getWager());
                         }
                     }
+                    System.out.println("-------------------------------------------------------------------------------------");
                     if (p3.getAvailable()) {
                         pRound(p3, p3.getWager());
                         if (p3.getRoundWin() == true) {
@@ -234,6 +239,7 @@ public class Ceelo {
                     System.out.println("Banker automatically wins this round");
                     System.out.println("All players lost their wager to the Banker");
                 }
+                System.out.println("-------------------------------------------------------------------------------------");
                 round ++;
                 p1.setScore(0);
                 p2.setScore(0);
@@ -243,6 +249,7 @@ public class Ceelo {
                 p3.setRoundWin(false);
                 boss.setScore(0);
                 boss.setRoundWin(false);
+                bankWinner = false;
                 System.out.println("This round's results: ");
                 System.out.println("--------------------------------------------" + "\n");
                 if(p1.getAvailable()){
@@ -286,7 +293,8 @@ public class Ceelo {
             }
             if (playerWin == false) {
                 System.out.println("The Banker won, better luck next time");
-            } else if (playerWin == true) {
+            }
+            else if (playerWin == true) {
                 System.out.println("The players won, good job");
                 System.out.println("The player with the highest score is " + highest + " with " + highestScore() + " chips left");
             }
