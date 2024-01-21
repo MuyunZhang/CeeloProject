@@ -62,24 +62,18 @@ public class Player {
     public int getDice3(){
         return dice3;
     }
-
     public int getChips() {
         return chips;
     }
-
     public int getScore(){
         return score;
     }
     public void setScore(int points){
         score = points;
     }
-
-
     public void addChips(int added){
         chips += added;
     }
-
-
     public void loseChips(int loss){
         chips -= loss;
     }

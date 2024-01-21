@@ -20,6 +20,8 @@ public class Ceelo {
     String highest = "";
 
     private boolean bankWinner;
+
+    private boolean pWin;
     private int round;
 
     private boolean playAgain = true;
@@ -97,18 +99,18 @@ public class Ceelo {
                     System.out.println(p3.getName() + " is unavailable");
                 }
 
-                System.out.println("-------------------------------------------------------------------------------------");
+                System.out.println("Start");
                 bankRound();
                 if (boss.getRoundWin() == false && boss.getScore() > 0) {
                     bankScore = boss.getScore();
                     bankWinner = false;
                 } else if (boss.getRoundWin() == false) {
                     bankWinner = false;
-                    end = true;
+                    pWin = true;
                 } else {
                     bankWinner = true;
                 }
-                if (bankWinner == false && end == false) {
+                if (bankWinner == false && pWin == false) {
                     if (p1.getAvailable()) {
                         pRound(p1, p1.getWager());
                         if (p1.getRoundWin() == true) {
@@ -117,7 +119,14 @@ public class Ceelo {
                             System.out.println(p1.getName() + " automatically wins this round");
                             System.out.println("Banker loses " + p1.getWager() + " chips");
                             System.out.println(p1.getName() + " gains " + p1.getWager() + " chips");
-                        } else if (boss.getScore() > p1.getScore()) {
+                        }else if (p1.getRoundWin() == false && p1.getScore() == 0) {
+                            System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
+                            System.out.println(p1.getName() + " rolled " + p1.getDice1() + ", " + p1.getDice2() + ", " + p1.getDice3());
+                            System.out.println(p1.getName() + " automatically loses this round");
+                            System.out.println("Banker gains " + p1.getWager() + " chips");
+                            System.out.println(p1.getName() + " loses " + p1.getWager() + " chips");
+                        }
+                        else if (boss.getScore() > p1.getScore()) {
                             System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
                             System.out.println(p1.getName() + " rolled " + p1.getDice1() + ", " + p1.getDice2() + ", " + p1.getDice3());
                             System.out.println("Banker's score this round is: " + boss.getScore());
@@ -151,7 +160,7 @@ public class Ceelo {
                         }
                     }
                     System.out.println("-------------------------------------------------------------------------------------");
-                    if (p2.getAvailable()) {
+                    if (p2.getAvailable() && boss.getChips() > 0) {
                         pRound(p2, p2.getWager());
                         if (p2.getRoundWin() == true) {
                             System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
@@ -159,7 +168,14 @@ public class Ceelo {
                             System.out.println(p2.getName() + " automatically wins this round");
                             System.out.println("Banker loses " + p2.getWager() + " chips");
                             System.out.println(p2.getName() + " gains " + p2.getWager() + " chips");
-                        } else if (boss.getScore() > p2.getScore()) {
+                        }else if (p2.getRoundWin() == false && p2.getScore() == 0) {
+                            System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
+                            System.out.println(p2.getName() + " rolled " + p2.getDice1() + ", " + p2.getDice2() + ", " + p2.getDice3());
+                            System.out.println(p2.getName() + " automatically loses this round");
+                            System.out.println("Banker gains " + p2.getWager() + " chips");
+                            System.out.println(p2.getName() + " loses " + p2.getWager() + " chips");
+                        }
+                        else if (boss.getScore() > p2.getScore()) {
                             System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
                             System.out.println(p2.getName() + " rolled " + p2.getDice1() + ", " + p2.getDice2() + ", " + p2.getDice3());
                             System.out.println("Banker's score this round is: " + boss.getScore());
@@ -193,7 +209,7 @@ public class Ceelo {
                         }
                     }
                     System.out.println("-------------------------------------------------------------------------------------");
-                    if (p3.getAvailable()) {
+                    if (p3.getAvailable() && boss.getChips() > 0) {
                         pRound(p3, p3.getWager());
                         if (p3.getRoundWin() == true) {
                             System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
@@ -201,6 +217,12 @@ public class Ceelo {
                             System.out.println(p3.getName() + " automatically wins this round");
                             System.out.println("Banker loses " + p3.getWager() + " chips");
                             System.out.println(p3.getName() + " gains " + p3.getWager() + " chips");
+                        } else if (p3.getRoundWin() == false && p3.getScore() == 0) {
+                            System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
+                            System.out.println(p3.getName() + " rolled " + p3.getDice1() + ", " + p3.getDice2() + ", " + p3.getDice3());
+                            System.out.println(p3.getName() + " automatically loses this round");
+                            System.out.println("Banker gains " + p3.getWager() + " chips");
+                            System.out.println(p3.getName() + " loses " + p3.getWager() + " chips");
                         } else if (boss.getScore() > p3.getScore()) {
                             System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
                             System.out.println(p3.getName() + " rolled " + p3.getDice1() + ", " + p3.getDice2() + ", " + p3.getDice3());
@@ -239,7 +261,12 @@ public class Ceelo {
                     System.out.println("Banker automatically wins this round");
                     System.out.println("All players lost their wager to the Banker");
                 }
-                System.out.println("-------------------------------------------------------------------------------------");
+                else if(bankWinner == false && pWin == true){
+                    System.out.println("Banker rolled " + boss.getDice1() + ", " + boss.getDice2() + ", " + boss.getDice3());
+                    System.out.println("Banker automatically loses this round");
+                    System.out.println("All players takes their wagers from the Banker");
+                }
+                System.out.println("Round over");
                 round ++;
                 p1.setScore(0);
                 p2.setScore(0);
