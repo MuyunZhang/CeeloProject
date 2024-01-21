@@ -5,10 +5,21 @@ public class Banker {
     int dice1;
     int dice2;
     int dice3;
+
+    boolean roundWin;
     Die d = new Die();
     public Banker(){
         chips = 1000;
         score = 0;
+        roundWin = false;
+    }
+
+    public void setRoundWin(boolean hi){
+        roundWin = hi;
+    }
+
+    public boolean getRoundWin(){
+        return roundWin;
     }
     public void roll() {
         dice1 = d.rollDice1();
