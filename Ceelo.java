@@ -11,14 +11,10 @@ public class Ceelo {
     private Player p1;
     private Player p2;
     private Player p3;
-
-
     private int bankScore;
     private Banker boss = new Banker();
     private Die d;
     private boolean end = false;
-
-    private boolean rollAgain;
     private Scanner scan;
 
     String highest = "";
@@ -61,7 +57,7 @@ public class Ceelo {
                 if (p1.getChips() > 0) {
                     System.out.println(p1.getName() + ", how many chips do you wager");
                     int w1 = scan.nextInt();
-                    while(w1 > p1.getChips() && w1 < 0){
+                    while(w1 > p1.getChips() || w1 < 0){
                         System.out.println("invalid input");
                         System.out.println(p1.getName() + ", how many chips do you wager");
                         w1 = scan.nextInt();
@@ -75,7 +71,7 @@ public class Ceelo {
                 if (p2.getChips() > 0) {
                     System.out.println(p2.getName() + ", how many chips do you wager");
                     int w2 = scan.nextInt();
-                    while(w2 > p2.getChips() && w2 < 0){
+                    while(w2 > p2.getChips() || w2 < 0){
                         System.out.println("invalid input");
                         System.out.println(p2.getName() + ", how many chips do you wager");
                         w2 = scan.nextInt();
@@ -89,7 +85,7 @@ public class Ceelo {
                 if (p3.getChips() > 0) {
                     System.out.println(p3.getName() + ", how many chips do you wager");
                     int w3 = scan.nextInt();
-                    while(w3 > p3.getChips() && w3 < 0){
+                    while(w3 > p3.getChips() || w3 < 0){
                         System.out.println("invalid input");
                         System.out.println(p3.getName() + ", how many chips do you wager");
                         w3 = scan.nextInt();
@@ -294,6 +290,8 @@ public class Ceelo {
             }
             if(again.equals("y")){
                 playAgain = true;
+                bankWinner = false;
+                end = false;
             }
             else if(again.equals("n")){
                 playAgain = false;
