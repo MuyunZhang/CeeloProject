@@ -99,7 +99,7 @@ public class Ceelo {
                     System.out.println(p3.getName() + " is unavailable");
                 }
 
-                System.out.println("Start");
+                System.out.println(Colors.BLUE + "Start" + "\n" + "---------------------------------" + Colors.RESET);
                 bankRound();
                 if (boss.getRoundWin() == false && boss.getScore() > 0) {
                     bankScore = boss.getScore();
@@ -159,7 +159,7 @@ public class Ceelo {
                             boss.loseChips(p1.getWager());
                         }
                     }
-                    System.out.println("-------------------------------------------------------------------------------------");
+                    System.out.println(Colors.YELLOW + "-------------------------------------------------------------------------------------" + Colors.RESET);
                     if (p2.getAvailable() && boss.getChips() > 0) {
                         pRound(p2, p2.getWager());
                         if (p2.getRoundWin() == true) {
@@ -208,7 +208,7 @@ public class Ceelo {
                             boss.loseChips(p2.getWager());
                         }
                     }
-                    System.out.println("-------------------------------------------------------------------------------------");
+                    System.out.println(Colors.YELLOW + "-------------------------------------------------------------------------------------" + Colors.RESET);
                     if (p3.getAvailable() && boss.getChips() > 0) {
                         pRound(p3, p3.getWager());
                         if (p3.getRoundWin() == true) {
@@ -267,7 +267,6 @@ public class Ceelo {
                     System.out.println("All players takes their wagers from the Banker");
                 }
                 System.out.println("Round over");
-                round ++;
                 p1.setScore(0);
                 p2.setScore(0);
                 p3.setScore(0);
