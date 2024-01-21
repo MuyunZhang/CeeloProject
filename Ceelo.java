@@ -232,7 +232,11 @@ public class Ceelo {
                 p1.setScore(0);
                 p2.setScore(0);
                 p3.setScore(0);
+                p1.setRoundWin(false);
+                p2.setRoundWin(false);
+                p3.setRoundWin(false);
                 boss.setScore(0);
+                boss.setRoundWin(false);
                 System.out.println("This round's results: ");
                 System.out.println("--------------------------------------------" + "\n");
                 if(p1.getAvailable()){
